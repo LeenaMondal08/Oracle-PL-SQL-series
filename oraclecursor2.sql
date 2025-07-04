@@ -38,8 +38,43 @@ close c1;
 end;
 /
 
+create table employee (
+id number(10) primary key,
+name varchar2(10),
+salary number(10,2),
+city varchar(10)
+);
+insert into employee values(1,'dripti',6784,'kolkata');
+insert into employee values(2,'sayak',5684,'behala');
+insert into employee values(3,'piyali',6348,'goura');
+insert into employee values(4,'moumita',2894,'kolkata');
+insert into employee values(5,'dripti',5004,'sonamui');
+select * from employee;
 
+-- multipale table
+declare 
+cursor c1 is select salary from employee;
+cursor c2 is select roll from student1;
+e_salary number(10);
+s_roll number(2);
+begin
+open c1;
+loop 
+fetch c1 into e_salary;
+exit when c1%found;
+dbms_output.put_line(e_salary);
+end loop;
+close c1;
 
+open c2;
+loop 
+fetch c2 into s_roll;
+exit when c2%found;
+dbms_output.put_line(s_roll);
+end loop;
+close c2;
+end;
+/
 
 
 
