@@ -1,6 +1,5 @@
 -- ref cursor
 select * from employee;
-
 -- weak ref cursor;
 declare 
 type c_type is  ref cursor;
